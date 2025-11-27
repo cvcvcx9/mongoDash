@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDash Tracking Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            height: 2000px; /* 스크롤 테스트를 위해 길게 설정 */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { color: #1a73e8; }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #1a73e8;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+        .btn:hover { background-color: #1557b0; }
+        .box {
+            width: 100%;
+            height: 200px;
+            background-color: #e8f0fe;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 2px dashed #1a73e8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MongoDash 트래킹 테스트</h1>
+        <p>이 페이지는 사용자 행동 추적 기능을 테스트하기 위한 페이지입니다.</p>
+        <p>마우스를 움직이거나, 클릭하거나, 스크롤을 해보세요.</p>
+        
+        <div class="box" id="test-box">
+            이 박스 위에서 마우스를 움직여보세요
+        </div>
+
+        <button class="btn" id="click-me-btn">클릭 테스트 버튼</button>
+        
+        <div style="margin-top: 50px;">
+            <h3>테스트 방법</h3>
+            <ol>
+                <li>F12 개발자 도구를 엽니다.</li>
+                <li>Console 탭에서 'Session started' 로그를 확인합니다.</li>
+                <li>Network 탭에서 5초마다 '/api/track/events' 요청이 가는지 확인합니다.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- 트래커 스크립트 로드 -->
+    <script src="/js/tracker.js"></script>
+    <script>
+        // 트래커 초기화
+        const tracker = new MongoDashTracker({
+            apiEndpoint: '/api/track' // 같은 도메인이므로 상대 경로 사용
+        });
+        tracker.init();
+    </script>
+</body>
+</html>
