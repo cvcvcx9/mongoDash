@@ -14,7 +14,7 @@ import java.time.LocalDateTime
 //     // 특정 페이지의 특정 타입 이벤트(예: 클릭)만 모아서 히트맵 그릴 때 사용
 //     CompoundIndex(name = "idx_page_type", def = "{'page_url': 1, 'event_type': 1}")
 // )
-data class TrackingEvent(
+open class TrackingEvent(
     @Id
     val id: String? = null,
 

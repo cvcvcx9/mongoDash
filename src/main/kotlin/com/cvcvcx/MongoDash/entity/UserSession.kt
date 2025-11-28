@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field
 import java.time.LocalDateTime
 
 @Document(collection = "user_sessions")
-data class UserSession(
+open class UserSession(
     @Id
     val id: String? = null,
 

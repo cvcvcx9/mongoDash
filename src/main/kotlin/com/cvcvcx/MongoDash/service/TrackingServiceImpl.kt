@@ -4,8 +4,11 @@ import com.cvcvcx.MongoDash.dto.TrackingEventDto
 import com.cvcvcx.MongoDash.dto.UserSessionDto
 import com.cvcvcx.MongoDash.repository.TrackingEventRepository
 import com.cvcvcx.MongoDash.repository.UserSessionRepository
+import mu.KotlinLogging
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+
+private val logger = KotlinLogging.logger {}
 
 @Service
 class TrackingServiceImpl(
@@ -30,6 +33,7 @@ class TrackingServiceImpl(
         val entities = dtos.map { it.toEntity() }
         
         val saved = trackingEventRepository.saveAll(entities)
+        logger.info { "데이터 저장 완료" }
         return saved.size
     }
 }

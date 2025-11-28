@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field
 import java.time.LocalDateTime
 
 @Document(collection = "page_snapshots")
-data class PageSnapshot(
+open class PageSnapshot(
     @Id
     val id: String? = null,
 
