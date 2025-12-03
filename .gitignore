@@ -42,4 +42,4 @@ test-output/
 node_modules/
 .env
 
-resources/application.yml
+application.yml
