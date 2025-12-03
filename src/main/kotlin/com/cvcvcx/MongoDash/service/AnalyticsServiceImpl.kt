@@ -6,7 +6,9 @@ import com.cvcvcx.MongoDash.dto.HeatmapResponseDto
 import com.cvcvcx.MongoDash.entity.EventType
 import com.cvcvcx.MongoDash.repository.TrackingComplexRepository
 import com.cvcvcx.MongoDash.repository.TrackingEventRepository
+import org.springframework.stereotype.Service
 
+@Service
 class AnalyticsServiceImpl(
     val trackingComplexRepository: TrackingComplexRepository
 ) : AnalyticsService {
@@ -20,7 +22,7 @@ class AnalyticsServiceImpl(
             val xRatio = ev.xRatio ?: return@mapNotNull null
             val yRatio = ev.yRatio ?: return@mapNotNull null
             val x = (xRatio * req.snapshotWidth).toInt().coerceAtLeast(0)
-            val y = (xRatio * req.snapshotHeight).toInt().coerceAtLeast(0)
+            val y = (yRatio * req.snapshotHeight).toInt().coerceAtLeast(0)
             x to y
         }.groupingBy { it }.eachCount()
 
