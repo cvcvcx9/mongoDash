@@ -34,7 +34,7 @@ MongoDash는 Kotlin으로 구축된 Spring Boot 애플리케이션으로, MongoD
 2.  **MongoDB 설정:**
     `src/main/resources/application.properties` 파일을 MongoDB 연결 정보로 업데이트하세요:
     ```properties
-    spring.data.mongodb.uri=mongodb://localhost:27017/mongodashdb
+    spring.mongodb.uri=mongodb://localhost:27017/mongodashdb
     ```
     (필요에 따라 `localhost:27017` 및 `mongodashdb`를 변경하세요)
 
