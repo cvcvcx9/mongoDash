@@ -1,0 +1,3 @@
+package com.cvcvcx.MongoDash.repository
+
+interface TrackingComplexRepository : TrackingEventRepository,TrackingEventQueryRepository

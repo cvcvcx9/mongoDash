@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  mongodb:
+    uri: mongodb://localhost:27017
+    database: mongodash
+logging:
+  level:
+    org.springframework.data.mongodb: DEBUG
+    org.mongodb.driver: DEBUG
+cloudflare:
+  r2:
+    secret:
+      accessKey: 9f3dde3966b343f07d1598c8cb55f74b
+      secretAccessKey: 5447c2fd193f6dd5d0f1ac5e0a701269d6cd9a6f39871cfc950ce96171f6ed72
+      url: https://01d1583d85e72d7d23f113516dea80e4.r2.cloudflarestorage.com
+      bucket: portfolio
